@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<p>Só que, se salvarmos o programa como está, <br>
+e avançarmos um ano, como se passássemos de 2016 para 2017, <br>
+ou qualquer outro ano no futuro, o que acontecerá com nosso programa? <br>
+Teríamos que alterar o ano manualmente para cada um dos comandos:</p>
+<br>
+<meta charset="UTF-8">
+
+<script>
+
+    document.write("Flávio tem " + (2017 - 1977) + " anos");
+    document.write("<br>");
+    document.write("Joaquim tem " + (2017 - 1996) + " anos");
+    document.write("<br>");
+    document.write("Barney tem " + (2017 - 1976) + " anos");
+    document.write("<br>");
+
+</script>
+<br>
+<p>Salvaremos e recarregaremos a página, para vermos que o programa funciona, <br>
+sucessivamente, para todos os anos no futuro. Mas e se tivéssemos, em vez de três, <br>
+quarenta pessoas? Teríamos que trocar manualmente o ano atual para cada uma delas, <br>
+isso seria demasiadamente laborioso.</p>
+
+  <p>  Queremos pensar em uma maneira para podermos, <br>
+  em um único lugar, escrever o ano e fazer com que ele seja <br>
+  acessado nos comandos, como se tivéssemos um envelope "ano" com um valor específico, <br>
+  como "2016". Portanto, onde temos 2016 no código, trocaremos por ano:</p>
+  <br>
+  <meta charset="UTF-8">
+
+  <script>
+
+      document.write("Flávio tem " + (ano - 1977) + " anos");
+      document.write("<br>");
+      document.write("Joaquim tem " + (ano - 1996) + " anos");
+      document.write("<br>");
+      document.write("Barney tem " + (ano - 1976) + " anos");
+      document.write("<br>");
+
+  </script>
+<br>
+<p>Se trocarmos o valor de ano, de 2016 para 2017, <br>
+por exemplo, precisaremos fazer esta alteração somente em um lugar, <br>
+e todos os lugares em que esta palavra for utilizada terão o novo valor aplicado.</p>
+<br>
+<p>Em nosso programa, conseguimos este efeito de<button> "envelope"</button> por meio da criação de variáveis. <br>
+Como o próprio nome sugere, elas variam, e são representadas da seguinte forma:</p>
+<br>
+var ano;
+<p>Mas qual é o valor da variável ano? <br>
+Para que ele seja recebido, utilizaremos o símbolo<button> = (sinal de igual).</button> Em programação, <br>
+não lemos = como "igual", e sim como "recebe". Definiremos então o valor como 2016:</p>
+<br>
+<script>
+
+    var ano = 2016;
+
+    document.write("Flávio tem " + (ano - 1977) + " anos");
+    document.write("<br>");
+    document.write("Joaquim tem " + (ano - 1996) + " anos");
+    document.write("<br>");
+    document.write("Barney tem " + (ano - 1976) + " anos");
+    document.write("<br>");
+
+</script>
+<br>
+<p>Assim, a variável ano recebe o valor 2016. <br>
+Salvaremos o programa e retornaremos ao navegador para recarregarmos a página. <br>
+Obtivemos o seguinte resultado:</p>
+<br>
+
+Flávio tem 39 anos
+<br>
+Joaquim tem 20 anos
+<br>
+Barney tem 40 anos
+
+<p>Nosso código funcionou como esperado. <br>
+Suponhamos que estejamos em 2017. <br>
+Precisaremos fazer a alteração em um único lugar <br>
+<button>( - na variável -, )</button> para que os valores das idades sejam atualizados:</p>
+<br>
+<script>
+
+    var ano = 2017;
+
+    document.write("Flávio tem " + (ano - 1977) + " anos");
+    document.write("<br>");
+    document.write("Joaquim tem " + (ano - 1996) + " anos");
+    document.write("<br>");
+    document.write("Barney tem " + (ano - 1976) + " anos");
+    document.write("<br>");
+
+</script>
+<p>Automaticamente, todos os lugares em que <br>
+a palavra ano está presente serão interpretados como 2017. <br>
+Salvaremos, recarregaremos a página, e obteremos o seguinte resultado:</p>
+<br>
+<button>O resultado foi o desejado! Quando o JavaScript se depara com a variável ano, <br>
+ele somente a interpretará como uma string se estiver em aspas <br>
+("ano"). Como não é o caso, ele verificará se é um número. <br>
+Não se tratando de um numeral, o JS determinará se é uma variável. <br>
+Anteriormente, escrevemos var ano, sendo assim, ela existe, <br>
+e quando o valor for computado, a palavra ano será trocada pelo valor 2017.</button>
+<br>
+<button>O processo de "raciocínio" do JavaScript será questionar se <br>
+determinado trecho está entre aspas, e se estiver, <br>
+é uma string, caso negativo, será feita uma próxima pergunta: <br>
+trata-se de um número? Caso a resposta seja "não", significa que se trata de uma variável.</button>
+<br>
+<button>É interessante trabalharmos com variáveis, porque ao declaramos eles em um único lugar, <br>
+várias instruções podem depender de uma mesma variável e,<br>
+quando alteramos seu valor, isso é refletido em todos os pontos do código onde aparece.</button>
+<br>
+<button>    Cuidado, como dito anteriormente, a variável é escrita somente com letras minúsculas. <br>
+Se alterarmos um caractere para maiúsculo, como no exemplo abaixo, <br>
+em que "a" está em maiúsculo em "Ano",</button>
+<br>
+document.write("Flávio tem " + (Ano - 1977) + " anos");
+<p>E se salvarmos e recarregarmos a página, veremos que nada foi exibido. Ao abrirmos o console em <br>
+"Ferramentas > Visualizar > Desenvolvedor > Console JavaScript", veremos a seguinte mensagem de erro:</p>
+<br>
+<button>Uncaught ReferenceError: Ano is not defined.</button>
+<br>
+<button>Ou seja, Ano não foi definido. Este erro é <br>
+comum quando começamos a programar, e indica que a variável Ano não existe, pois definimos ano. <br>
+Em qualquer momento, no próprio código, <br>
+podemos indicar um novo valor para esta mesma variável:</button>
+<br>
+<script>
+
+    var ano = 2016;
+
+    document.write("Flávio tem " + (ano - 1977) + " anos");
+    document.write("<br>");
+    document.write("Joaquim tem " + (ano - 1996) + " anos");
+    document.write("<br>");
+
+    ano = 2017;
+    document.write("Barney tem " + (ano - 1976) + " anos");
+    document.write("<br>");
+
+</script>
+<br>
+<p>Temos uma linha mais abaixo em que declaramos que a variável ano terá 2017 como valor. <br>
+Assim, tudo que estiver abaixo dela deverá considerar a variável desta forma, <br>
+ou seja, Barney, por exemplo, terá como ano base 2017.</p>
+
+
+<p>O prefixo var só é utilizado ao declararmos a variável pela primeira vez, <br>
+então não é necessário utilizá-lo ao definirmos um novo valor. As variáveis nos ajudam, também, a fazer a manutenção de nosso código, <br>
+já que ela é declarada em um único ponto e pode ser utilizada em diversos momentos.</p>
+</body>
+</html>
